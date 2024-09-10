@@ -1,7 +1,7 @@
-# Game Math Library
+# Vector Matrix Library
 ![LICENSE](https://img.shields.io/badge/LICENSE-MIT-green.svg)
 
-GML is a simple 3D math library intended for game development.
+VML is a simple 3D math library intended for game development.
 
 ## Features
 - Single header library written in C99
