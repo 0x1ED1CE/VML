@@ -29,7 +29,7 @@ SOFTWARE.
 
 #define VML_VERSION_MAJOR 1
 #define VML_VERSION_MINOR 0
-#define VML_VERSION_PATCH 1
+#define VML_VERSION_PATCH 2
 
 // SCALAR FUNCTIONS
 
@@ -58,6 +58,11 @@ static inline float vml_lerp(
 );
 
 // VEC2 FUNCTIONS
+
+static inline void vml_vec2_num(
+	float a,
+	float b[2]
+);
 
 static inline void vml_vec2_neg(
 	float a[2],
@@ -122,6 +127,11 @@ static inline void vml_vec2_lerp(
 );
 
 // VEC3 FUNCTIONS
+
+static inline void vml_vec3_num(
+	float a,
+	float b[3]
+);
 
 static inline void vml_vec3_neg(
 	float a[3],
@@ -322,13 +332,13 @@ void vml_mat4_look_get(
 	float b[3]
 );
 
-void vml_mat4_position_set(
+void vml_mat4_pos_set(
 	float a[16],
 	float b[3],
 	float c[16]
 );
 
-void vml_mat4_position_get(
+void vml_mat4_pos_get(
 	float a[16],
 	float b[3]
 );
@@ -418,6 +428,14 @@ static inline float vml_lerp(
 }
 
 // VEC2 FUNCTIONS
+
+static inline void vml_vec2_num(
+	float a,
+	float b[2]
+) {
+	b[0] = a;
+	b[1] = a;
+}
 
 static inline void vml_vec2_neg(
 	float a[2],
@@ -530,6 +548,15 @@ static inline void vml_vec2_lerp(
 }
 
 // VEC3 FUNCTIONS
+
+static inline void vml_vec3_num(
+	float a,
+	float b[3]
+) {
+	b[0] = a;
+	b[1] = a;
+	b[2] = a;
+}
 
 static inline void vml_vec3_neg(
 	float a[3],
@@ -1058,24 +1085,24 @@ void vml_mat4_inv(
 	float b32 = -a00*a11*a32+a00*a12*a31+a10*a01*a32-a10*a02*a31-a30*a01*a12+a30*a02*a11;
 	float b33 =  a00*a11*a22-a00*a12*a21-a10*a01*a22+a10*a02*a21+a20*a01*a12-a20*a02*a11;
 
-	float det = a00*b00+a01*b10+a02*b20+a03*b30;
+	float det = 1/(a00*b00+a01*b10+a02*b20+a03*b30);
 
-	b[0]  = b00/det;
-	b[1]  = b01/det;
-	b[2]  = b02/det;
-	b[3]  = b03/det;
-	b[4]  = b10/det;
-	b[5]  = b11/det;
-	b[6]  = b12/det;
-	b[7]  = b13/det;
-	b[8]  = b20/det;
-	b[9]  = b21/det;
-	b[10] = b22/det;
-	b[11] = b23/det;
-	b[12] = b30/det;
-	b[13] = b31/det;
-	b[14] = b32/det;
-	b[15] = b33/det;
+	b[0]  = b00*det;
+	b[1]  = b01*det;
+	b[2]  = b02*det;
+	b[3]  = b03*det;
+	b[4]  = b10*det;
+	b[5]  = b11*det;
+	b[6]  = b12*det;
+	b[7]  = b13*det;
+	b[8]  = b20*det;
+	b[9]  = b21*det;
+	b[10] = b22*det;
+	b[11] = b23*det;
+	b[12] = b30*det;
+	b[13] = b31*det;
+	b[14] = b32*det;
+	b[15] = b33*det;
 }
 
 void vml_mat4_mat3_get(
@@ -1098,12 +1125,12 @@ void vml_mat4_euler_set(
 	float b[3],
 	float c[16]
 ) {
-	float cx = cosf(a[0]);
-	float cy = cosf(a[1]);
-	float cz = cosf(a[2]);
-	float sx = sinf(a[0]);
-	float sy = sinf(a[1]);
-	float sz = sinf(a[2]);
+	float cx = cosf(b[0]);
+	float cy = cosf(b[1]);
+	float cz = cosf(b[2]);
+	float sx = sinf(b[0]);
+	float sy = sinf(b[1]);
+	float sz = sinf(b[2]);
 
 	c[0]  = cy*cz;
 	c[1]  = -cy*sz;
@@ -1323,19 +1350,30 @@ void vml_mat4_look_get(
 	b[2] = a[10];
 }
 
-void vml_mat4_position_set(
+void vml_mat4_pos_set(
 	float a[16],
 	float b[3],
 	float c[16]
 ) {
-	vml_mat4_mov(a,c);
-
+	c[0]  = a[0];
+	c[1]  = a[1];
+	c[2]  = a[2];
 	c[3]  = b[0];
+	c[4]  = a[4];
+	c[5]  = a[5];
+	c[6]  = a[6];
 	c[7]  = b[1];
+	c[8]  = a[8];
+	c[9]  = a[9];
+	c[10] = a[10];
 	c[11] = b[2];
+	c[12] = a[12];
+	c[13] = a[13];
+	c[14] = a[14];
+	c[15] = a[15];
 }
 
-void vml_mat4_position_get(
+void vml_mat4_pos_get(
 	float a[16],
 	float b[3]
 ) {
@@ -1416,14 +1454,14 @@ void vml_mat4_lerp(
 	vml_mat4_quat_get(a,aq);
 	vml_mat4_quat_get(b,bq);
 
-	vml_mat4_position_get(a,ap);
-	vml_mat4_position_get(b,bp);
+	vml_mat4_pos_get(a,ap);
+	vml_mat4_pos_get(b,bp);
 
 	vml_quat_lerp(aq,bq,t,cq);
 	vml_vec3_lerp(ap,bp,t,cp);
 
 	vml_mat4_quat_set(c,cq,c);
-	vml_mat4_position_set(c,cp,c);
+	vml_mat4_pos_set(c,cp,c);
 }
 
 void vml_mat4_perspective(
