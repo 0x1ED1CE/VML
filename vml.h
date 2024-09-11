@@ -29,7 +29,7 @@ SOFTWARE.
 
 #define VML_VERSION_MAJOR 1
 #define VML_VERSION_MINOR 0
-#define VML_VERSION_PATCH 0
+#define VML_VERSION_PATCH 1
 
 // SCALAR FUNCTIONS
 
@@ -1105,22 +1105,22 @@ void vml_mat4_euler_set(
 	float sy = sinf(a[1]);
 	float sz = sinf(a[2]);
 
-	b[0]  = cy*cz;
-	b[1]  = -cy*sz;
-	b[2]  = sy;
-	b[3]  = 0;
-	b[4]  = cz*sx*sy+cx*sz;
-	b[5]  = cx*cz-sx*sy*sz;
-	b[6]  = -cy*sx;
-	b[7]  = 0;
-	b[8]  = sx*sz-cx*cz*sy;
-	b[9]  = cz*sx+cx*sy*sz;
-	b[10] = cx*cy;
-	b[11] = 0;
-	b[12] = 0;
-	b[13] = 0;
-	b[14] = 0;
-	b[15] = 1;
+	c[0]  = cy*cz;
+	c[1]  = -cy*sz;
+	c[2]  = sy;
+	c[3]  = a[3];
+	c[4]  = cz*sx*sy+cx*sz;
+	c[5]  = cx*cz-sx*sy*sz;
+	c[6]  = -cy*sx;
+	c[7]  = a[7];
+	c[8]  = sx*sz-cx*cz*sy;
+	c[9]  = cz*sx+cx*sy*sz;
+	c[10] = cx*cy;
+	c[11] = a[11];
+	c[12] = a[12];
+	c[13] = a[13];
+	c[14] = a[14];
+	c[15] = a[15];
 }
 
 void vml_mat4_euler_get(
