@@ -28,7 +28,7 @@ float vector_b[3]  = {1,2,3};
 
 vml_mat4_vec3_mul(matrix_a,vector_b,vector_b}; // vector_b = matrix_a*vector_b
 ```
-Refer to [vml.h](vml.h) for to see rest of the functions.
+Refer to [vml.h](vml.h) to see rest of the functions.
 
 ## License
 This software is free to use. You can modify it and redistribute it under the terms of the 
