@@ -203,6 +203,8 @@ static inline void vml_vec3_lerp(
 
 // QUATERNION FUNCTIONS
 
+#define VML_QUAT_IDENTITY {0.0, 0.0, 0.0, 1.0}
+
 void vml_quat_lerp(
 	float a[4],
 	float b[4],
@@ -211,6 +213,12 @@ void vml_quat_lerp(
 );
 
 // MAT3 FUNCTIONS
+
+#define VML_MAT3_IDENTITY { \
+	1.0, 0.0, 0.0, \
+	0.0, 1.0, 0.0, \
+	0.0, 0.0, 1.0 \
+}
 
 static inline void vml_mat3_id(
 	float a[9]
@@ -250,6 +258,13 @@ void vml_mat3_scale_set(
 );
 
 // MAT4 FUNCTIONS
+
+#define VML_MAT4_IDENTITY { \
+	1.0, 0.0, 0.0, 0.0, \
+	0.0, 1.0, 0.0, 0.0, \
+	0.0, 0.0, 1.0, 0.0, \
+	0.0, 0.0, 0.0, 1.0 \
+}
 
 static inline void vml_mat4_id(
 	float a[16]
@@ -1500,16 +1515,16 @@ void vml_mat4_orthographic(
 	float f,
 	float a[16]
 ) {
-	a[0] = 2/(r-l);
-	a[1] = 0;
-	a[2] = 0;
-	a[3] = -(r+l)/(r-l);
-	a[4] = 0;
-	a[5] = 2/(t-b);
-	a[6] = 0;
-	a[7] = -(t+b)/(t-b);
-	a[8] = 0;
-	a[9] = 0;
+	a[0]  = 2/(r-l);
+	a[1]  = 0;
+	a[2]  = 0;
+	a[3]  = -(r+l)/(r-l);
+	a[4]  = 0;
+	a[5]  = 2/(t-b);
+	a[6]  = 0;
+	a[7]  = -(t+b)/(t-b);
+	a[8]  = 0;
+	a[9]  = 0;
 	a[10] = -2/(f-n);
 	a[11] = -(f+n)/(f-n);
 	a[12] = 0;
