@@ -14,6 +14,13 @@ Include library
 #define VML_IMPLEMENTATION
 #include "vml.h"
 ```
+Returning a scalar value
+```c
+float vector_a[3] = {1,2,3};
+float scalar_b;
+
+vml_vec3_mag(vector_a,&scalar_b); // scalar_b = ||vector_a||
+```
 Adding two vec3's
 ```c
 float vector_a[3] = {1,2,3};
