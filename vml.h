@@ -1,9 +1,7 @@
 /*
-Vector Matrix Library
-
 MIT License
 
-Copyright (c) 2024 Dice
+Copyright (c) 2025 Dice
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,370 +26,457 @@ SOFTWARE.
 #define VML_H
 
 #define VML_VERSION_MAJOR 1
-#define VML_VERSION_MINOR 0
+#define VML_VERSION_MINOR 1
 #define VML_VERSION_PATCH 2
+
+typedef float vml_real;
 
 // SCALAR FUNCTIONS
 
-static inline float vml_min(
-	float a,
-	float b
+#define VML_PI 3.1415926535898
+
+vml_real vml_min(
+	vml_real a,
+	vml_real b
 );
 
-static inline float vml_max(
-	float a,
-	float b
+vml_real vml_max(
+	vml_real a,
+	vml_real b
 );
 
-static inline float vml_abs(
-	float a
+vml_real vml_floor(
+	vml_real a
 );
 
-static inline float vml_sign(
-	float a
+vml_real vml_ceil(
+	vml_real a
 );
 
-static inline float vml_lerp(
-	float a,
-	float b,
-	float t
+vml_real vml_abs(
+	vml_real a
+);
+
+vml_real vml_sign(
+	vml_real a
+);
+
+vml_real vml_lerp(
+	vml_real a,
+	vml_real b,
+	vml_real t
+);
+
+vml_real vml_pow(
+	vml_real a,
+	vml_real b
+);
+
+vml_real vml_mod(
+	vml_real a,
+	vml_real b
+);
+
+vml_real vml_log(
+	vml_real a
+);
+
+vml_real vml_exp(
+	vml_real a
+);
+
+vml_real vml_deg(
+	vml_real a
+);
+
+vml_real vml_rad(
+	vml_real a
+);
+
+vml_real vml_sin(
+	vml_real a
+);
+
+vml_real vml_cos(
+	vml_real a
+);
+
+vml_real vml_tan(
+	vml_real a
+);
+
+vml_real vml_asin(
+	vml_real a
+);
+
+vml_real vml_acos(
+	vml_real a
+);
+
+vml_real vml_atan(
+	vml_real a
+);
+
+vml_real vml_atan2(
+	vml_real x,
+	vml_real y
 );
 
 // VEC2 FUNCTIONS
 
-static inline void vml_vec2_num(
-	float a,
-	float b[2]
+void vml_vec2_num(
+	vml_real a,
+	vml_real b[2]
 );
 
-static inline void vml_vec2_neg(
-	float a[2],
-	float b[2]
+void vml_vec2_neg(
+	vml_real a[2],
+	vml_real b[2]
 );
 
-static inline void vml_vec2_abs(
-	float a[2],
-	float b[2]
+void vml_vec2_abs(
+	vml_real a[2],
+	vml_real b[2]
 );
 
-static inline void vml_vec2_mov(
-	float a[2],
-	float b[2]
+void vml_vec2_mov(
+	vml_real a[2],
+	vml_real b[2]
 );
 
-static inline void vml_vec2_add(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_add(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 );
 
-static inline void vml_vec2_sub(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_sub(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 );
 
-static inline void vml_vec2_mul(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_mul(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 );
 
-static inline void vml_vec2_div(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_div(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 );
 
-static inline void vml_vec2_dot(
-	float  a[2],
-	float  b[2],
-	float *c
+void vml_vec2_pow(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 );
 
-static inline void vml_vec2_unit(
-	float a[2],
-	float b[2]
+void vml_vec2_mod(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 );
 
-static inline void vml_vec2_mag(
-	float  a[2],
-	float *b
+void vml_vec2_dot(
+	vml_real  a[2],
+	vml_real  b[2],
+	vml_real *c
 );
 
-static inline void vml_vec2_lerp(
-	float a[2],
-	float b[2],
-	float t,
-	float c[2]
+void vml_vec2_mag(
+	vml_real  a[2],
+	vml_real *b
+);
+
+void vml_vec2_unit(
+	vml_real a[2],
+	vml_real b[2]
+);
+
+void vml_vec2_lerp(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real t,
+	vml_real c[2]
 );
 
 // VEC3 FUNCTIONS
 
-static inline void vml_vec3_num(
-	float a,
-	float b[3]
+void vml_vec3_num(
+	vml_real a,
+	vml_real b[3]
 );
 
-static inline void vml_vec3_neg(
-	float a[3],
-	float b[3]
+void vml_vec3_neg(
+	vml_real a[3],
+	vml_real b[3]
 );
 
-static inline void vml_vec3_abs(
-	float a[3],
-	float b[3]
+void vml_vec3_abs(
+	vml_real a[3],
+	vml_real b[3]
 );
 
-static inline void vml_vec3_mov(
-	float a[3],
-	float b[3]
+void vml_vec3_mov(
+	vml_real a[3],
+	vml_real b[3]
 );
 
-static inline void vml_vec3_add(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_add(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_sub(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_sub(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_mul(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_mul(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_div(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_div(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_dot(
-	float  a[3],
-	float  b[3],
-	float *c
+void vml_vec3_pow(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_cross(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_mod(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_unit(
-	float a[3],
-	float b[3]
+void vml_vec3_dot(
+	vml_real  a[3],
+	vml_real  b[3],
+	vml_real *c
 );
 
-static inline void vml_vec3_mag(
-	float  a[3],
-	float *b
+void vml_vec3_cross(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 );
 
-static inline void vml_vec3_lerp(
-	float a[3],
-	float b[3],
-	float t,
-	float c[3]
+void vml_vec3_mag(
+	vml_real  a[3],
+	vml_real *b
 );
 
-// QUATERNION FUNCTIONS
+void vml_vec3_unit(
+	vml_real a[3],
+	vml_real b[3]
+);
 
-#define VML_QUAT_IDENTITY {0.0, 0.0, 0.0, 1.0}
+void vml_vec3_lerp(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real t,
+	vml_real c[3]
+);
 
-void vml_quat_lerp(
-	float a[4],
-	float b[4],
-	float t,
-	float c[4]
+// VEC4 FUNCTIONS
+
+void vml_vec4_unit(
+	vml_real a[4],
+	vml_real b[4]
+);
+
+void vml_vec4_lerp(
+	vml_real a[4],
+	vml_real b[4],
+	vml_real t,
+	vml_real c[4]
 );
 
 // MAT3 FUNCTIONS
 
-#define VML_MAT3_IDENTITY { \
-	1.0, 0.0, 0.0, \
-	0.0, 1.0, 0.0, \
-	0.0, 0.0, 1.0 \
-}
-
-static inline void vml_mat3_id(
-	float a[9]
+void vml_mat3_id(
+	vml_real a[9]
 );
 
-static inline void vml_mat3_mov(
-	float a[9],
-	float b[9]
+void vml_mat3_mov(
+	vml_real a[9],
+	vml_real b[9]
 );
 
 void vml_mat3_transpose(
-	float a[9],
-	float b[9]
+	vml_real a[9],
+	vml_real b[9]
 );
 
 void vml_mat3_vec3_mul(
-	float a[9],
-	float b[3],
-	float c[3]
+	vml_real a[9],
+	vml_real b[3],
+	vml_real c[3]
 );
 
 void vml_mat3_mul(
-	float a[9],
-	float b[9],
-	float c[9]
+	vml_real a[9],
+	vml_real b[9],
+	vml_real c[9]
 );
 
 void vml_mat3_inv(
-	float a[9],
-	float b[9]
+	vml_real a[9],
+	vml_real b[9]
 );
 
 void vml_mat3_scale_set(
-	float a[9],
-	float b[3],
-	float c[9]
+	vml_real a[9],
+	vml_real b[3],
+	vml_real c[9]
 );
 
 // MAT4 FUNCTIONS
 
-#define VML_MAT4_IDENTITY { \
-	1.0, 0.0, 0.0, 0.0, \
-	0.0, 1.0, 0.0, 0.0, \
-	0.0, 0.0, 1.0, 0.0, \
-	0.0, 0.0, 0.0, 1.0 \
-}
-
-static inline void vml_mat4_id(
-	float a[16]
+void vml_mat4_id(
+	vml_real a[16]
 );
 
-static inline void vml_mat4_mov(
-	float a[16],
-	float b[16]
+void vml_mat4_mov(
+	vml_real a[16],
+	vml_real b[16]
 );
 
 void vml_mat4_transpose(
-	float a[16],
-	float b[16]
+	vml_real a[16],
+	vml_real b[16]
 );
 
 void vml_mat4_vec3_mul(
-	float a[16],
-	float b[3],
-	float c[3]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[3]
+);
+
+void vml_mat4_vec4_mul(
+	vml_real a[16],
+	vml_real b[4],
+	vml_real c[4]
 );
 
 void vml_mat4_mul(
-	float a[16],
-	float b[16],
-	float c[16]
+	vml_real a[16],
+	vml_real b[16],
+	vml_real c[16]
 );
 
 void vml_mat4_inv(
-	float a[16],
-	float b[16]
+	vml_real a[16],
+	vml_real b[16]
 );
 
 void vml_mat4_mat3_get(
-	float a[16],
-	float b[9]
+	vml_real a[16],
+	vml_real b[9]
 );
 
 void vml_mat4_euler_set(
-	float a[16],
-	float b[3],
-	float c[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[16]
 );
 
 void vml_mat4_euler_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 );
 
 void vml_mat4_quat_set(
-	float a[16],
-	float b[4],
-	float c[16]
+	vml_real a[16],
+	vml_real b[4],
+	vml_real c[16]
 );
 
 void vml_mat4_quat_get(
-	float a[16],
-	float b[4]
+	vml_real a[16],
+	vml_real b[4]
 );
 
 void vml_mat4_axis_set(
-	float a[16],
-	float b[4],
-	float c[16]
+	vml_real a[16],
+	vml_real b[4],
+	vml_real c[16]
 );
 
 void vml_mat4_axis_get(
-	float a[16],
-	float b[4]
+	vml_real a[16],
+	vml_real b[4]
 );
 
 void vml_mat4_look_set(
-	float a[16],
-	float b[3],
-	float c[3],
-	float d[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[3],
+	vml_real d[16]
 );
 
 void vml_mat4_look_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 );
 
 void vml_mat4_pos_set(
-	float a[16],
-	float b[3],
-	float c[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[16]
 );
 
 void vml_mat4_pos_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 );
 
 void vml_mat4_scale_set(
-	float a[16],
-	float b[3],
-	float c[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[16]
 );
 
 void vml_mat4_scale_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 );
 
 void vml_mat4_lerp(
-	float a[16],
-	float b[16],
-	float t,
-	float c[16]
+	vml_real a[16],
+	vml_real b[16],
+	vml_real t,
+	vml_real c[16]
 );
 
 void vml_mat4_perspective(
-	float v, // Field of view
-	float r, // Aspect ratio
-	float n, // Near plane
-	float f, // Far plane
-	float a[16]
+	vml_real v, // Field of view
+	vml_real r, // Aspect ratio
+	vml_real n, // Near plane
+	vml_real f, // Far plane
+	vml_real a[16]
 );
 
 void vml_mat4_orthographic(
-	float l, // Left
-	float r, // Right
-	float t, // Top
-	float b, // Bottom
-	float n, // Near
-	float f, // Far
-	float a[16]
+	vml_real l, // Left
+	vml_real r, // Right
+	vml_real t, // Top
+	vml_real b, // Bottom
+	vml_real n, // Near
+	vml_real f, // Far
+	vml_real a[16]
 );
 
 #endif
@@ -399,132 +484,241 @@ void vml_mat4_orthographic(
 /************************[IMPLEMENTATION BEGINS HERE]*************************/
 
 #ifdef VML_IMPLEMENTATION
-#ifndef VML_C
-#define VML_C
 
 #include <math.h>
 
 // SCALAR FUNCTIONS
 
-static inline float vml_min(
-	float a,
-	float b
+vml_real vml_min(
+	vml_real a,
+	vml_real b
 ) {
 	return (a<b)?a:b;
 }
 
-static inline float vml_max(
-	float a,
-	float b
+vml_real vml_max(
+	vml_real a,
+	vml_real b
 ) {
 	return (a>b)?a:b;
 }
 
-static inline float vml_abs(
-	float a
+vml_real vml_floor(
+	vml_real a
+) {
+	return floorf(a);
+}
+
+vml_real vml_ceil(
+	vml_real a
+) {
+	return ceilf(a);
+}
+
+vml_real vml_abs(
+	vml_real a
 ) {
 	return (a<0)?-a:a;
 }
 
-static inline float vml_sign(
-	float a
+vml_real vml_sign(
+	vml_real a
 ) {
 	if (a==0) return 0;
 
 	return (a<0)?-1:1;
 }
 
-static inline float vml_lerp(
-	float a,
-	float b,
-	float t
+vml_real vml_lerp(
+	vml_real a,
+	vml_real b,
+	vml_real t
 ) {
 	return a*(1-t)+b*t;
 }
 
+vml_real vml_pow(
+	vml_real a,
+	vml_real b
+) {
+	return powf(a,b);
+}
+
+vml_real vml_mod(
+	vml_real a,
+	vml_real b
+) {
+	return fmodf(a,b);
+}
+
+vml_real vml_log(
+	vml_real a
+) {
+	return logf(a);
+}
+
+vml_real vml_exp(
+	vml_real a
+) {
+	return expf(a);
+}
+
+vml_real vml_deg(
+	vml_real a
+) {
+	return a*180.0f/VML_PI;
+}
+
+vml_real vml_rad(
+	vml_real a
+) {
+	return a*VML_PI/180.0f;
+}
+
+vml_real vml_sin(
+	vml_real a
+) {
+	return sinf(a);
+}
+
+vml_real vml_cos(
+	vml_real a
+) {
+	return cosf(a);
+}
+
+vml_real vml_tan(
+	vml_real a
+) {
+	return tanf(a);
+}
+
+vml_real vml_asin(
+	vml_real a
+) {
+	return asinf(a);
+}
+
+vml_real vml_acos(
+	vml_real a
+) {
+	return acosf(a);
+}
+
+vml_real vml_atan(
+	vml_real a
+) {
+	return atanf(a);
+}
+
+vml_real vml_atan2(
+	vml_real x,
+	vml_real y
+) {
+	return atan2f(x,y);
+}
+
 // VEC2 FUNCTIONS
 
-static inline void vml_vec2_num(
-	float a,
-	float b[2]
+void vml_vec2_num(
+	vml_real a,
+	vml_real b[2]
 ) {
 	b[0] = a;
 	b[1] = a;
 }
 
-static inline void vml_vec2_neg(
-	float a[2],
-	float b[2]
+void vml_vec2_neg(
+	vml_real a[2],
+	vml_real b[2]
 ) {
 	b[0] = -a[0];
 	b[1] = -a[1];
 }
 
-static inline void vml_vec2_abs(
-	float a[2],
-	float b[2]
+void vml_vec2_abs(
+	vml_real a[2],
+	vml_real b[2]
 ) {
 	b[0] = vml_abs(a[0]);
 	b[1] = vml_abs(a[1]);
 }
 
-static inline void vml_vec2_mov(
-	float a[2],
-	float b[2]
+void vml_vec2_mov(
+	vml_real a[2],
+	vml_real b[2]
 ) {
 	b[0] = a[0];
 	b[1] = a[1];
 }
 
-static inline void vml_vec2_add(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_add(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 ) {
 	c[0] = a[0]+b[0];
 	c[1] = a[1]+b[1];
 }
 
-static inline void vml_vec2_sub(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_sub(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 ) {
 	c[0] = a[0]-b[0];
 	c[1] = a[1]-b[1];
 }
 
-static inline void vml_vec2_mul(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_mul(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 ) {
 	c[0] = a[0]*b[0];
 	c[1] = a[1]*b[1];
 }
 
-static inline void vml_vec2_div(
-	float a[2],
-	float b[2],
-	float c[2]
+void vml_vec2_div(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
 ) {
 	c[0] = a[0]/b[0];
 	c[1] = a[1]/b[1];
 }
 
-static inline void vml_vec2_dot(
-	float  a[2],
-	float  b[2],
-	float *c
+void vml_vec2_pow(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
+) {
+	c[0] = powf(a[0],b[0]);
+	c[1] = powf(a[1],b[1]);
+}
+
+void vml_vec2_mod(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real c[2]
+) {
+	c[0] = fmodf(a[0],b[0]);
+	c[1] = fmodf(a[1],b[1]);
+}
+
+void vml_vec2_dot(
+	vml_real  a[2],
+	vml_real  b[2],
+	vml_real *c
 ) {
 	*c = (a[0]*b[0])+(a[1]*b[1]);
 }
 
-static inline void vml_vec2_unit(
-	float a[2],
-	float b[2]
+void vml_vec2_unit(
+	vml_real a[2],
+	vml_real b[2]
 ) {
-	float m=sqrtf(
+	vml_real m=1.0f/sqrtf(
 		a[0]*a[0]+
 		a[1]*a[1]
 	);
@@ -536,13 +730,13 @@ static inline void vml_vec2_unit(
 		return;
 	}
 
-	b[0] = a[0]/m;
-	b[1] = a[1]/m;
+	b[0] = a[0]*m;
+	b[1] = a[1]*m;
 }
 
-static inline void vml_vec2_mag(
-	float  a[2],
-	float *b
+void vml_vec2_mag(
+	vml_real  a[2],
+	vml_real *b
 ) {
 	*b=sqrtf(
 		a[0]*a[0]+
@@ -550,123 +744,141 @@ static inline void vml_vec2_mag(
 	);
 }
 
-static inline void vml_vec2_lerp(
-	float a[2],
-	float b[2],
-	float t,
-	float c[2]
+void vml_vec2_lerp(
+	vml_real a[2],
+	vml_real b[2],
+	vml_real t,
+	vml_real c[2]
 ) {
-	float it = 1-t;
-
 	c[0] = vml_lerp(a[0],b[0],t);
 	c[1] = vml_lerp(a[1],b[1],t);
 }
 
 // VEC3 FUNCTIONS
 
-static inline void vml_vec3_num(
-	float a,
-	float b[3]
+void vml_vec3_num(
+	vml_real a,
+	vml_real b[3]
 ) {
 	b[0] = a;
 	b[1] = a;
 	b[2] = a;
 }
 
-static inline void vml_vec3_neg(
-	float a[3],
-	float b[3]
+void vml_vec3_neg(
+	vml_real a[3],
+	vml_real b[3]
 ) {
 	b[0] = -a[0];
 	b[1] = -a[1];
 	b[2] = -a[2];
 }
 
-static inline void vml_vec3_abs(
-	float a[3],
-	float b[3]
+void vml_vec3_abs(
+	vml_real a[3],
+	vml_real b[3]
 ) {
 	b[0] = vml_abs(a[0]);
 	b[1] = vml_abs(a[1]);
 	b[2] = vml_abs(a[2]);
 }
 
-static inline void vml_vec3_mov(
-	float a[3],
-	float b[3]
+void vml_vec3_mov(
+	vml_real a[3],
+	vml_real b[3]
 ) {
 	b[0] = a[0];
 	b[1] = a[1];
 	b[2] = a[2];
 }
 
-static inline void vml_vec3_add(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_add(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 ) {
 	c[0] = a[0]+b[0];
 	c[1] = a[1]+b[1];
 	c[2] = a[2]+b[2];
 }
 
-static inline void vml_vec3_sub(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_sub(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 ) {
 	c[0] = a[0]-b[0];
 	c[1] = a[1]-b[1];
 	c[2] = a[2]-b[2];
 }
 
-static inline void vml_vec3_mul(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_mul(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 ) {
 	c[0] = a[0]*b[0];
 	c[1] = a[1]*b[1];
 	c[2] = a[2]*b[2];
 }
 
-static inline void vml_vec3_div(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_div(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 ) {
 	c[0] = a[0]/b[0];
 	c[1] = a[1]/b[1];
 	c[2] = a[2]/b[2];
 }
 
-static inline void vml_vec3_dot(
-	float  a[3],
-	float  b[3],
-	float *c
+void vml_vec3_pow(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
+) {
+	c[0] = powf(a[0],b[0]);
+	c[1] = powf(a[1],b[1]);
+	c[2] = powf(a[2],b[2]);
+}
+
+void vml_vec3_mod(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
+) {
+	c[0] = fmodf(a[0],b[0]);
+	c[1] = fmodf(a[1],b[1]);
+	c[2] = fmodf(a[2],b[2]);
+}
+
+void vml_vec3_dot(
+	vml_real  a[3],
+	vml_real  b[3],
+	vml_real *c
 ) {
 	*c = (a[0]*b[0])+(a[1]*b[1])+(a[2]*b[2]);
 }
 
-static inline void vml_vec3_cross(
-	float a[3],
-	float b[3],
-	float c[3]
+void vml_vec3_cross(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real c[3]
 ) {
-	float r0 = a[1]*b[2]-a[2]*b[1];
-	float r1 = a[2]*b[0]-a[0]*b[2];
-	float r2 = a[0]*b[1]-a[1]*b[0];
+	vml_real r0 = a[1]*b[2]-a[2]*b[1];
+	vml_real r1 = a[2]*b[0]-a[0]*b[2];
+	vml_real r2 = a[0]*b[1]-a[1]*b[0];
 
 	c[0] = r0;
 	c[1] = r1;
 	c[2] = r2;
 }
 
-static inline void vml_vec3_unit(
-	float a[3],
-	float b[3]
+void vml_vec3_unit(
+	vml_real a[3],
+	vml_real b[3]
 ) {
-	float m=sqrtf(
+	vml_real m=sqrtf(
 		a[0]*a[0]+
 		a[1]*a[1]+
 		a[2]*a[2]
@@ -680,14 +892,16 @@ static inline void vml_vec3_unit(
 		return;
 	}
 
-	b[0] = a[0]/m;
-	b[1] = a[1]/m;
-	b[2] = a[2]/m;
+	m = 1.0f/m;
+
+	b[0] = a[0]*m;
+	b[1] = a[1]*m;
+	b[2] = a[2]*m;
 }
 
-static inline void vml_vec3_mag(
-	float  a[3],
-	float *b
+void vml_vec3_mag(
+	vml_real  a[3],
+	vml_real *b
 ) {
 	*b=sqrtf(
 		a[0]*a[0]+
@@ -696,14 +910,12 @@ static inline void vml_vec3_mag(
 	);
 }
 
-static inline void vml_vec3_lerp(
-	float a[3],
-	float b[3],
-	float t,
-	float c[3]
+void vml_vec3_lerp(
+	vml_real a[3],
+	vml_real b[3],
+	vml_real t,
+	vml_real c[3]
 ) {
-	float it = 1-t;
-
 	c[0] = vml_lerp(a[0],b[0],t);
 	c[1] = vml_lerp(a[1],b[1],t);
 	c[2] = vml_lerp(a[2],b[2],t);
@@ -711,34 +923,62 @@ static inline void vml_vec3_lerp(
 
 // QUATERNION FUNCTIONS
 
-void vml_quat_lerp(
-	float a[4],
-	float b[4],
-	float t,
-	float c[4]
+void vml_vec4_unit(
+	vml_real a[4],
+	vml_real b[4]
 ) {
-	float ax = a[0];
-	float ay = a[1];
-	float az = a[2];
-	float aw = a[3];
-	float bx = b[0];
-	float by = b[1];
-	float bz = b[2];
-	float bw = b[3];
+	vml_real m=sqrtf(
+		a[0]*a[0]+
+		a[1]*a[1]+
+		a[2]*a[2]+
+		a[3]*a[3]
+	);
 
-	float am = sqrtf(ax*ax+ay*ay+az*az+aw*aw);
-	float bm = sqrtf(bx*bx+by*by+bz*bz+bw*bw);
+	if (m==0) {
+		b[0] = 0;
+		b[1] = 0;
+		b[2] = 0;
+		b[3] = 0;
 
-	ax /= am;
-	ay /= am;
-	az /= am;
-	aw /= am;
-	bx /= bm;
-	by /= bm;
-	bz /= bm;
-	bw /= bm;
+		return;
+	}
 
-	float dot = ax*bx+ay*by+az*bz+aw*bw;
+	m = 1.0f/m;
+
+	b[0] = a[0]*m;
+	b[1] = a[1]*m;
+	b[2] = a[2]*m;
+	b[3] = a[3]*m;
+}
+
+void vml_vec4_lerp(
+	vml_real a[4],
+	vml_real b[4],
+	vml_real t,
+	vml_real c[4]
+) {
+	vml_real ax = a[0];
+	vml_real ay = a[1];
+	vml_real az = a[2];
+	vml_real aw = a[3];
+	vml_real bx = b[0];
+	vml_real by = b[1];
+	vml_real bz = b[2];
+	vml_real bw = b[3];
+
+	vml_real am = 1.0f/sqrtf(ax*ax+ay*ay+az*az+aw*aw);
+	vml_real bm = 1.0f/sqrtf(bx*bx+by*by+bz*bz+bw*bw);
+
+	ax *= am;
+	ay *= am;
+	az *= am;
+	aw *= am;
+	bx *= bm;
+	by *= bm;
+	bz *= bm;
+	bw *= bm;
+
+	vml_real dot = ax*bx+ay*by+az*bz+aw*bw;
 
 	if (dot<0) {
 		bx  = -bx;
@@ -749,26 +989,26 @@ void vml_quat_lerp(
 	}
 
 	if (dot>0.9995) {
-		float cx = vml_lerp(ax,bx,t);
-		float cy = vml_lerp(ay,by,t);
-		float cz = vml_lerp(az,bz,t);
-		float cw = vml_lerp(aw,bw,t);
-		float cm = sqrtf(cx*cx+cy*cy+cz*cz+cw*cw);
+		vml_real cx = vml_lerp(ax,bx,t);
+		vml_real cy = vml_lerp(ay,by,t);
+		vml_real cz = vml_lerp(az,bz,t);
+		vml_real cw = vml_lerp(aw,bw,t);
+		vml_real cm = 1.0f/sqrtf(cx*cx+cy*cy+cz*cz+cw*cw);
 
-		c[0] = cx/cm;
-		c[1] = cy/cm;
-		c[2] = cz/cm;
-		c[3] = cw/cm;
+		c[0] = cx*cm;
+		c[1] = cy*cm;
+		c[2] = cz*cm;
+		c[3] = cw*cm;
 
 		return;
 	}
 
-	float t0  = acosf(dot);
-	float t1  = t0*t;
-	float st0 = sin(t0);
-	float st1 = sin(t1);
-	float s0  = cosf(t1)-dot*st1/st0;
-	float s1  = st1/st0;
+	vml_real t0  = acosf(dot);
+	vml_real t1  = t0*t;
+	vml_real st0 = sin(t0);
+	vml_real st1 = sin(t1);
+	vml_real s0  = cosf(t1)-dot*st1/st0;
+	vml_real s1  = st1/st0;
 
 	c[0] = ax*s0+bx*s1;
 	c[1] = ay*s0+by*s1;
@@ -778,8 +1018,8 @@ void vml_quat_lerp(
 
 // MAT3 FUNCTIONS
 
-static inline void vml_mat3_id(
-	float a[9]
+void vml_mat3_id(
+	vml_real a[9]
 ) {
 	a[0] = 1;
 	a[1] = 0;
@@ -792,9 +1032,9 @@ static inline void vml_mat3_id(
 	a[8] = 1;
 }
 
-static inline void vml_mat3_mov(
-	float a[9],
-	float b[9]
+void vml_mat3_mov(
+	vml_real a[9],
+	vml_real b[9]
 ) {
 	for (unsigned int i=0; i<9; i++) {
 		b[i] = a[i];
@@ -802,18 +1042,18 @@ static inline void vml_mat3_mov(
 }
 
 void vml_mat3_transpose(
-	float a[9],
-	float b[9]
+	vml_real a[9],
+	vml_real b[9]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a10 = a[3];
-	float a11 = a[4];
-	float a12 = a[5];
-	float a20 = a[6];
-	float a21 = a[7];
-	float a22 = a[8];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a10 = a[3];
+	vml_real a11 = a[4];
+	vml_real a12 = a[5];
+	vml_real a20 = a[6];
+	vml_real a21 = a[7];
+	vml_real a22 = a[8];
 
 	b[0] = a00;
 	b[1] = a10;
@@ -827,13 +1067,13 @@ void vml_mat3_transpose(
 }
 
 void vml_mat3_vec3_mul(
-	float a[9],
-	float b[3],
-	float c[3]
+	vml_real a[9],
+	vml_real b[3],
+	vml_real c[3]
 ) {
-	float r0 = b[0]*a[0]+b[1]*a[1]+b[2]*a[2];
-	float r1 = b[0]*a[3]+b[1]*a[4]+b[2]*a[5];
-	float r2 = b[0]*a[6]+b[1]*a[7]+b[2]*a[8];
+	vml_real r0 = b[0]*a[0]+b[1]*a[1]+b[2]*a[2];
+	vml_real r1 = b[0]*a[3]+b[1]*a[4]+b[2]*a[5];
+	vml_real r2 = b[0]*a[6]+b[1]*a[7]+b[2]*a[8];
 
 	c[0] = r0;
 	c[1] = r1;
@@ -841,29 +1081,29 @@ void vml_mat3_vec3_mul(
 }
 
 void vml_mat3_mul(
-	float a[9],
-	float b[9],
-	float c[9]
+	vml_real a[9],
+	vml_real b[9],
+	vml_real c[9]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a10 = a[3];
-	float a11 = a[4];
-	float a12 = a[5];
-	float a20 = a[6];
-	float a21 = a[7];
-	float a22 = a[8];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a10 = a[3];
+	vml_real a11 = a[4];
+	vml_real a12 = a[5];
+	vml_real a20 = a[6];
+	vml_real a21 = a[7];
+	vml_real a22 = a[8];
 
-	float b00 = b[0];
-	float b01 = b[1];
-	float b02 = b[2];
-	float b10 = b[3];
-	float b11 = b[4];
-	float b12 = b[5];
-	float b20 = b[6];
-	float b21 = b[7];
-	float b22 = b[8];
+	vml_real b00 = b[0];
+	vml_real b01 = b[1];
+	vml_real b02 = b[2];
+	vml_real b10 = b[3];
+	vml_real b11 = b[4];
+	vml_real b12 = b[5];
+	vml_real b20 = b[6];
+	vml_real b21 = b[7];
+	vml_real b22 = b[8];
 
 	c[0] = a00*b00+a01*b10+a02*b20;
 	c[1] = a00*b01+a01*b11+a02*b21;
@@ -877,42 +1117,42 @@ void vml_mat3_mul(
 }
 
 void vml_mat3_inv(
-	float a[9],
-	float b[9]
+	vml_real a[9],
+	vml_real b[9]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a10 = a[3];
-	float a11 = a[4];
-	float a12 = a[5];
-	float a20 = a[6];
-	float a21 = a[7];
-	float a22 = a[8];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a10 = a[3];
+	vml_real a11 = a[4];
+	vml_real a12 = a[5];
+	vml_real a20 = a[6];
+	vml_real a21 = a[7];
+	vml_real a22 = a[8];
 
-	float det=(
+	vml_real det=1.0f/(
 		a00*(a11*a22-a21*a12)-
 		a01*(a10*a22-a12*a20)+
 		a02*(a10*a21-a11*a20)
 	);
 
-	b[0] = (a11*a22-a21*a12)/det;
-	b[1] = (a02*a21-a01*a22)/det;
-	b[2] = (a01*a12-a02*a11)/det;
-	b[3] = (a12*a20-a10*a22)/det;
-	b[4] = (a00*a22-a02*a20)/det;
-	b[5] = (a10*a02-a00*a12)/det;
-	b[6] = (a10*a21-a20*a11)/det;
-	b[7] = (a20*a01-a00*a21)/det;
-	b[8] = (a00*a11-a10*a01)/det;
+	b[0] = (a11*a22-a21*a12)*det;
+	b[1] = (a02*a21-a01*a22)*det;
+	b[2] = (a01*a12-a02*a11)*det;
+	b[3] = (a12*a20-a10*a22)*det;
+	b[4] = (a00*a22-a02*a20)*det;
+	b[5] = (a10*a02-a00*a12)*det;
+	b[6] = (a10*a21-a20*a11)*det;
+	b[7] = (a20*a01-a00*a21)*det;
+	b[8] = (a00*a11-a10*a01)*det;
 }
 
 void vml_mat3_scale_set(
-	float a[9],
-	float b[3],
-	float c[9]
+	vml_real a[9],
+	vml_real b[3],
+	vml_real c[9]
 ) {
-	vml_mat3_mul(a,(float[9]){
+	vml_mat3_mul(a,(vml_real[9]){
 		b[0], 0,    0,
 		0,    b[1], 0,
 		0,    0,    b[2]
@@ -921,8 +1161,8 @@ void vml_mat3_scale_set(
 
 // MAT4 FUNCTIONS
 
-static inline void vml_mat4_id(
-	float a[16]
+void vml_mat4_id(
+	vml_real a[16]
 ) {
 	a[0]  = 1;
 	a[1]  = 0;
@@ -942,9 +1182,9 @@ static inline void vml_mat4_id(
 	a[15] = 1;
 }
 
-static inline void vml_mat4_mov(
-	float a[16],
-	float b[16]
+void vml_mat4_mov(
+	vml_real a[16],
+	vml_real b[16]
 ) {
 	for (unsigned int i=0; i<16; i++) {
 		b[i] = a[i];
@@ -953,25 +1193,25 @@ static inline void vml_mat4_mov(
 
 
 void vml_mat4_transpose(
-	float a[16],
-	float b[16]
+	vml_real a[16],
+	vml_real b[16]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a03 = a[3];
-	float a10 = a[4];
-	float a11 = a[5];
-	float a12 = a[6];
-	float a13 = a[7];
-	float a20 = a[8];
-	float a21 = a[9];
-	float a22 = a[10];
-	float a23 = a[11];
-	float a30 = a[12];
-	float a31 = a[13];
-	float a32 = a[14];
-	float a33 = a[15];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a03 = a[3];
+	vml_real a10 = a[4];
+	vml_real a11 = a[5];
+	vml_real a12 = a[6];
+	vml_real a13 = a[7];
+	vml_real a20 = a[8];
+	vml_real a21 = a[9];
+	vml_real a22 = a[10];
+	vml_real a23 = a[11];
+	vml_real a30 = a[12];
+	vml_real a31 = a[13];
+	vml_real a32 = a[14];
+	vml_real a33 = a[15];
 
 	b[0]  = a00;
 	b[1]  = a10;
@@ -992,13 +1232,13 @@ void vml_mat4_transpose(
 }
 
 void vml_mat4_vec3_mul(
-	float a[16],
-	float b[3],
-	float c[3]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[3]
 ) {
-	float r0 = b[0]*a[0]+b[1]*a[1]+b[2]*a[2]+a[3];
-	float r1 = b[0]*a[4]+b[1]*a[5]+b[2]*a[6]+a[7];
-	float r2 = b[0]*a[8]+b[1]*a[9]+b[2]*a[10]+a[11];
+	vml_real r0 = b[0]*a[0]+b[1]*a[1]+b[2]*a[2]+a[3];
+	vml_real r1 = b[0]*a[4]+b[1]*a[5]+b[2]*a[6]+a[7];
+	vml_real r2 = b[0]*a[8]+b[1]*a[9]+b[2]*a[10]+a[11];
 
 	c[0] = r0;
 	c[1] = r1;
@@ -1006,43 +1246,43 @@ void vml_mat4_vec3_mul(
 }
 
 void vml_mat4_mul(
-	float a[16],
-	float b[16],
-	float c[16]
+	vml_real a[16],
+	vml_real b[16],
+	vml_real c[16]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a03 = a[3];
-	float a10 = a[4];
-	float a11 = a[5];
-	float a12 = a[6];
-	float a13 = a[7];
-	float a20 = a[8];
-	float a21 = a[9];
-	float a22 = a[10];
-	float a23 = a[11];
-	float a30 = a[12];
-	float a31 = a[13];
-	float a32 = a[14];
-	float a33 = a[15];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a03 = a[3];
+	vml_real a10 = a[4];
+	vml_real a11 = a[5];
+	vml_real a12 = a[6];
+	vml_real a13 = a[7];
+	vml_real a20 = a[8];
+	vml_real a21 = a[9];
+	vml_real a22 = a[10];
+	vml_real a23 = a[11];
+	vml_real a30 = a[12];
+	vml_real a31 = a[13];
+	vml_real a32 = a[14];
+	vml_real a33 = a[15];
 
-	float b00 = b[0];
-	float b01 = b[1];
-	float b02 = b[2];
-	float b03 = b[3];
-	float b10 = b[4];
-	float b11 = b[5];
-	float b12 = b[6];
-	float b13 = b[7];
-	float b20 = b[8];
-	float b21 = b[9];
-	float b22 = b[10];
-	float b23 = b[11];
-	float b30 = b[12];
-	float b31 = b[13];
-	float b32 = b[14];
-	float b33 = b[15];
+	vml_real b00 = b[0];
+	vml_real b01 = b[1];
+	vml_real b02 = b[2];
+	vml_real b03 = b[3];
+	vml_real b10 = b[4];
+	vml_real b11 = b[5];
+	vml_real b12 = b[6];
+	vml_real b13 = b[7];
+	vml_real b20 = b[8];
+	vml_real b21 = b[9];
+	vml_real b22 = b[10];
+	vml_real b23 = b[11];
+	vml_real b30 = b[12];
+	vml_real b31 = b[13];
+	vml_real b32 = b[14];
+	vml_real b33 = b[15];
 
 	c[0]  = a00*b00+a01*b10+a02*b20+a03*b30;
 	c[1]  = a00*b01+a01*b11+a02*b21+a03*b31;
@@ -1063,44 +1303,44 @@ void vml_mat4_mul(
 }
 
 void vml_mat4_inv(
-	float a[16],
-	float b[16]
+	vml_real a[16],
+	vml_real b[16]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a03 = a[3];
-	float a10 = a[4];
-	float a11 = a[5];
-	float a12 = a[6];
-	float a13 = a[7];
-	float a20 = a[8];
-	float a21 = a[9];
-	float a22 = a[10];
-	float a23 = a[11];
-	float a30 = a[12];
-	float a31 = a[13];
-	float a32 = a[14];
-	float a33 = a[15];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a03 = a[3];
+	vml_real a10 = a[4];
+	vml_real a11 = a[5];
+	vml_real a12 = a[6];
+	vml_real a13 = a[7];
+	vml_real a20 = a[8];
+	vml_real a21 = a[9];
+	vml_real a22 = a[10];
+	vml_real a23 = a[11];
+	vml_real a30 = a[12];
+	vml_real a31 = a[13];
+	vml_real a32 = a[14];
+	vml_real a33 = a[15];
 
-	float b00 =  a11*a22*a33-a11*a23*a32-a21*a12*a33+a21*a13*a32+a31*a12*a23-a31*a13*a22;
-	float b01 = -a01*a22*a33+a01*a23*a32+a21*a02*a33-a21*a03*a32-a31*a02*a23+a31*a03*a22;
-	float b02 =  a01*a12*a33-a01*a13*a32-a11*a02*a33+a11*a03*a32+a31*a02*a13-a31*a03*a12;
-	float b03 = -a01*a12*a23+a01*a13*a22+a11*a02*a23-a11*a03*a22-a21*a02*a13+a21*a03*a12;
-	float b10 = -a10*a22*a33+a10*a23*a32+a20*a12*a33-a20*a13*a32-a30*a12*a23+a30*a13*a22;
-	float b11 =  a00*a22*a33-a00*a23*a32-a20*a02*a33+a20*a03*a32+a30*a02*a23-a30*a03*a22;
-	float b12 = -a00*a12*a33+a00*a13*a32+a10*a02*a33-a10*a03*a32-a30*a02*a13+a30*a03*a12;
-	float b13 =  a00*a12*a23-a00*a13*a22-a10*a02*a23+a10*a03*a22+a20*a02*a13-a20*a03*a12;
-	float b20 =  a10*a21*a33-a10*a23*a31-a20*a11*a33+a20*a13*a31+a30*a11*a23-a30*a13*a21;
-	float b21 = -a00*a21*a33+a00*a23*a31+a20*a01*a33-a20*a03*a31-a30*a01*a23+a30*a03*a21;
-	float b22 =  a00*a11*a33-a00*a13*a31-a10*a01*a33+a10*a03*a31+a30*a01*a13-a30*a03*a11;
-	float b23 = -a00*a11*a23+a00*a13*a21+a10*a01*a23-a10*a03*a21-a20*a01*a13+a20*a03*a11;
-	float b30 = -a10*a21*a32+a10*a22*a31+a20*a11*a32-a20*a12*a31-a30*a11*a22+a30*a12*a21;
-	float b31 =  a00*a21*a32-a00*a22*a31-a20*a01*a32+a20*a02*a31+a30*a01*a22-a30*a02*a21;
-	float b32 = -a00*a11*a32+a00*a12*a31+a10*a01*a32-a10*a02*a31-a30*a01*a12+a30*a02*a11;
-	float b33 =  a00*a11*a22-a00*a12*a21-a10*a01*a22+a10*a02*a21+a20*a01*a12-a20*a02*a11;
+	vml_real b00 =  a11*a22*a33-a11*a23*a32-a21*a12*a33+a21*a13*a32+a31*a12*a23-a31*a13*a22;
+	vml_real b01 = -a01*a22*a33+a01*a23*a32+a21*a02*a33-a21*a03*a32-a31*a02*a23+a31*a03*a22;
+	vml_real b02 =  a01*a12*a33-a01*a13*a32-a11*a02*a33+a11*a03*a32+a31*a02*a13-a31*a03*a12;
+	vml_real b03 = -a01*a12*a23+a01*a13*a22+a11*a02*a23-a11*a03*a22-a21*a02*a13+a21*a03*a12;
+	vml_real b10 = -a10*a22*a33+a10*a23*a32+a20*a12*a33-a20*a13*a32-a30*a12*a23+a30*a13*a22;
+	vml_real b11 =  a00*a22*a33-a00*a23*a32-a20*a02*a33+a20*a03*a32+a30*a02*a23-a30*a03*a22;
+	vml_real b12 = -a00*a12*a33+a00*a13*a32+a10*a02*a33-a10*a03*a32-a30*a02*a13+a30*a03*a12;
+	vml_real b13 =  a00*a12*a23-a00*a13*a22-a10*a02*a23+a10*a03*a22+a20*a02*a13-a20*a03*a12;
+	vml_real b20 =  a10*a21*a33-a10*a23*a31-a20*a11*a33+a20*a13*a31+a30*a11*a23-a30*a13*a21;
+	vml_real b21 = -a00*a21*a33+a00*a23*a31+a20*a01*a33-a20*a03*a31-a30*a01*a23+a30*a03*a21;
+	vml_real b22 =  a00*a11*a33-a00*a13*a31-a10*a01*a33+a10*a03*a31+a30*a01*a13-a30*a03*a11;
+	vml_real b23 = -a00*a11*a23+a00*a13*a21+a10*a01*a23-a10*a03*a21-a20*a01*a13+a20*a03*a11;
+	vml_real b30 = -a10*a21*a32+a10*a22*a31+a20*a11*a32-a20*a12*a31-a30*a11*a22+a30*a12*a21;
+	vml_real b31 =  a00*a21*a32-a00*a22*a31-a20*a01*a32+a20*a02*a31+a30*a01*a22-a30*a02*a21;
+	vml_real b32 = -a00*a11*a32+a00*a12*a31+a10*a01*a32-a10*a02*a31-a30*a01*a12+a30*a02*a11;
+	vml_real b33 =  a00*a11*a22-a00*a12*a21-a10*a01*a22+a10*a02*a21+a20*a01*a12-a20*a02*a11;
 
-	float det = 1/(a00*b00+a01*b10+a02*b20+a03*b30);
+	vml_real det = 1.0f/(a00*b00+a01*b10+a02*b20+a03*b30);
 
 	b[0]  = b00*det;
 	b[1]  = b01*det;
@@ -1121,8 +1361,8 @@ void vml_mat4_inv(
 }
 
 void vml_mat4_mat3_get(
-	float a[16],
-	float b[9]
+	vml_real a[16],
+	vml_real b[9]
 ) {
 	b[0] = a[0];
 	b[1] = a[1];
@@ -1136,16 +1376,16 @@ void vml_mat4_mat3_get(
 }
 
 void vml_mat4_euler_set(
-	float a[16],
-	float b[3],
-	float c[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[16]
 ) {
-	float cx = cosf(b[0]);
-	float cy = cosf(b[1]);
-	float cz = cosf(b[2]);
-	float sx = sinf(b[0]);
-	float sy = sinf(b[1]);
-	float sz = sinf(b[2]);
+	vml_real cx = cosf(b[0]);
+	vml_real cy = cosf(b[1]);
+	vml_real cz = cosf(b[2]);
+	vml_real sx = sinf(b[0]);
+	vml_real sy = sinf(b[1]);
+	vml_real sz = sinf(b[2]);
 
 	c[0]  = cy*cz;
 	c[1]  = -cy*sz;
@@ -1166,8 +1406,8 @@ void vml_mat4_euler_set(
 }
 
 void vml_mat4_euler_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 ) {
 	b[0] = atan2f(-a[6],a[10]);
 	b[1] = asinf(a[2]);
@@ -1175,24 +1415,24 @@ void vml_mat4_euler_get(
 }
 
 void vml_mat4_quat_set(
-	float a[16],
-	float b[4],
-	float c[16]
+	vml_real a[16],
+	vml_real b[4],
+	vml_real c[16]
 ) {
-	float x = b[0];
-	float y = b[1];
-	float z = b[2];
-	float w = b[3];
+	vml_real x = b[0];
+	vml_real y = b[1];
+	vml_real z = b[2];
+	vml_real w = b[3];
 
-	float xx = x*x;
-	float yy = y*y;
-	float zz = z*z;
-	float xy = x*y;
-	float xz = x*z;
-	float yz = y*z;
-	float xw = x*w;
-	float yw = y*w;
-	float zw = z*w;
+	vml_real xx = x*x;
+	vml_real yy = y*y;
+	vml_real zz = z*z;
+	vml_real xy = x*y;
+	vml_real xz = x*z;
+	vml_real yz = y*z;
+	vml_real xw = x*w;
+	vml_real yw = y*w;
+	vml_real zw = z*w;
 
 	c[0]  = 1-2*yy-2*zz;
 	c[1]  = 2*(xy-zw);
@@ -1213,23 +1453,23 @@ void vml_mat4_quat_set(
 }
 
 void vml_mat4_quat_get(
-	float a[16],
-	float b[4]
+	vml_real a[16],
+	vml_real b[4]
 ) {
-	float a00 = a[0];
-	float a01 = a[1];
-	float a02 = a[2];
-	float a10 = a[4];
-	float a11 = a[5];
-	float a12 = a[6];
-	float a20 = a[8];
-	float a21 = a[9];
-	float a22 = a[10];
+	vml_real a00 = a[0];
+	vml_real a01 = a[1];
+	vml_real a02 = a[2];
+	vml_real a10 = a[4];
+	vml_real a11 = a[5];
+	vml_real a12 = a[6];
+	vml_real a20 = a[8];
+	vml_real a21 = a[9];
+	vml_real a22 = a[10];
 
-	float x = sqrtf(vml_max(( a00-a11-a22+1)/4,0));
-	float y = sqrtf(vml_max((-a00+a11-a22+1)/4,0));
-	float z = sqrtf(vml_max((-a00-a11+a22+1)/4,0));
-	float w = sqrtf(vml_max(( a00+a11+a22+1)/4,0));
+	vml_real x = sqrtf(vml_max(( a00-a11-a22+1)/4,0));
+	vml_real y = sqrtf(vml_max((-a00+a11-a22+1)/4,0));
+	vml_real z = sqrtf(vml_max((-a00-a11+a22+1)/4,0));
+	vml_real w = sqrtf(vml_max(( a00+a11+a22+1)/4,0));
 
 	if (w>=x && w>=y && w>=z) {
 		x = x*vml_sign(a21-a12);
@@ -1249,35 +1489,35 @@ void vml_mat4_quat_get(
 		w = w*vml_sign(a10-a01);
 	}
 
-	float m = sqrtf(x*x+y*y+z*z+w*w);
+	vml_real m = 1.0f/sqrtf(x*x+y*y+z*z+w*w);
 
-	b[0] = x/m;
-	b[1] = y/m;
-	b[2] = z/m;
-	b[3] = w/m;
+	b[0] = x*m;
+	b[1] = y*m;
+	b[2] = z*m;
+	b[3] = w*m;
 }
 
 void vml_mat4_axis_set(
-	float a[16],
-	float b[4],
-	float c[16]
+	vml_real a[16],
+	vml_real b[4],
+	vml_real c[16]
 ) {
-	float x = b[0];
-	float y = b[1];
-	float z = b[2];
-	float w = b[3];
+	vml_real x = b[0];
+	vml_real y = b[1];
+	vml_real z = b[2];
+	vml_real w = b[3];
 
-	float cw = cosf(w);
-	float sw = sinf(w);
-	float m  = sqrtf(x*x+y*y+z*z);
+	vml_real cw = cosf(w);
+	vml_real sw = sinf(w);
+	vml_real m  = 1.0f/sqrtf(x*x+y*y+z*z);
 
-	x /= m;
-	y /= m;
-	z /= m;
+	x *= m;
+	y *= m;
+	z *= m;
 
-	float xx = x*x;
-	float yy = y*y;
-	float zz = z*z;
+	vml_real xx = x*x;
+	vml_real yy = y*y;
+	vml_real zz = z*z;
 
 	c[0]  = cw+xx*(1-cw);
 	c[1]  = yy*(1-cw)-z*sw;
@@ -1298,67 +1538,67 @@ void vml_mat4_axis_set(
 }
 
 void vml_mat4_axis_get(
-	float a[16],
-	float b[4]
+	vml_real a[16],
+	vml_real b[4]
 ) {
-	float a21_a12 = a[9]-a[6];
-	float a02_a20 = a[2]-a[8];
-	float a10_a01 = a[4]-a[1];
+	vml_real a21_a12 = a[9]-a[6];
+	vml_real a02_a20 = a[2]-a[8];
+	vml_real a10_a01 = a[4]-a[1];
 
-	float m=sqrtf(
+	vml_real m=1.0f/sqrtf(
 		a21_a12*a21_a12+
 		a02_a20*a02_a20+
 		a10_a01*a10_a01
 	);
 
-	b[0] = a21_a12/m;
-	b[1] = a02_a20/m;
-	b[2] = a10_a01/m;
+	b[0] = a21_a12*m;
+	b[1] = a02_a20*m;
+	b[2] = a10_a01*m;
 	b[3] = acosf((a[0]+a[5]+a[10]-1)/2);
 }
 
 void vml_mat4_look_set(
-	float a[16],
-	float b[3],
-	float c[3],
-	float d[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[3],
+	vml_real d[16]
 ) {
-	float fx = b[0];
-	float fy = b[1];
-	float fz = b[2];
-	float ux = c[0];
-	float uy = c[1];
-	float uz = c[2];
-	float rx = uy*fz-uz*fy;
-	float ry = uz*fx-ux*fz;
-	float rz = ux*fy-uy*fx;
-	float rm = sqrtf(rx*rx+ry*ry+rz*rz);
+	vml_real fx = b[0];
+	vml_real fy = b[1];
+	vml_real fz = b[2];
+	vml_real ux = c[0];
+	vml_real uy = c[1];
+	vml_real uz = c[2];
+	vml_real rx = uy*fz-uz*fy;
+	vml_real ry = uz*fx-ux*fz;
+	vml_real rz = ux*fy-uy*fx;
+	vml_real rm = 1.0f/sqrtf(rx*rx+ry*ry+rz*rz);
 
-	rx /= rm;
-	ry /= rm;
-	rz /= rm;
+	rx *= rm;
+	ry *= rm;
+	rz *= rm;
 
-	c[0]  = rx;
-	c[1]  = fy*rz-fz*ry;
-	c[2]  = fx;
-	c[3]  = a[3];
-	c[4]  = ry;
-	c[5]  = fz*rx-fx*rz;
-	c[6]  = fy;
-	c[7]  = a[7];
-	c[8]  = rz;
-	c[9]  = fx*ry-fy*rx;
-	c[10] = fz;
-	c[11] = a[11];
-	c[12] = a[12];
-	c[13] = a[13];
-	c[14] = a[14];
-	c[15] = a[15];
+	d[0]  = rx;
+	d[1]  = fy*rz-fz*ry;
+	d[2]  = fx;
+	d[3]  = a[3];
+	d[4]  = ry;
+	d[5]  = fz*rx-fx*rz;
+	d[6]  = fy;
+	d[7]  = a[7];
+	d[8]  = rz;
+	d[9]  = fx*ry-fy*rx;
+	d[10] = fz;
+	d[11] = a[11];
+	d[12] = a[12];
+	d[13] = a[13];
+	d[14] = a[14];
+	d[15] = a[15];
 }
 
 void vml_mat4_look_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 ) {
 	b[0] = a[2];
 	b[1] = a[6];
@@ -1366,9 +1606,9 @@ void vml_mat4_look_get(
 }
 
 void vml_mat4_pos_set(
-	float a[16],
-	float b[3],
-	float c[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[16]
 ) {
 	c[0]  = a[0];
 	c[1]  = a[1];
@@ -1389,8 +1629,8 @@ void vml_mat4_pos_set(
 }
 
 void vml_mat4_pos_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 ) {
 	b[0] = a[3];
 	b[1] = a[7];
@@ -1398,23 +1638,23 @@ void vml_mat4_pos_get(
 }
 
 void vml_mat4_scale_set(
-	float a[16],
-	float b[3],
-	float c[16]
+	vml_real a[16],
+	vml_real b[3],
+	vml_real c[16]
 ) {
-	float rx = a[0];
-	float ry = a[4];
-	float rz = a[8];
-	float tx = a[1];
-	float ty = a[5];
-	float tz = a[9];
-	float fx = a[2];
-	float fy = a[6];
-	float fz = a[10];	
+	vml_real rx = a[0];
+	vml_real ry = a[4];
+	vml_real rz = a[8];
+	vml_real tx = a[1];
+	vml_real ty = a[5];
+	vml_real tz = a[9];
+	vml_real fx = a[2];
+	vml_real fy = a[6];
+	vml_real fz = a[10];	
 
-	float rm = b[0]*1/sqrtf(rx*rx+ry*ry+rz*rz);
-	float tm = b[1]*1/sqrtf(tx*tx+ty*ty+tz*tz);
-	float fm = b[2]*1/sqrtf(fx*fx+fy*fy+fz*fz);
+	vml_real rm = b[0]/sqrtf(rx*rx+ry*ry+rz*rz);
+	vml_real tm = b[1]/sqrtf(tx*tx+ty*ty+tz*tz);
+	vml_real fm = b[2]/sqrtf(fx*fx+fy*fy+fz*fz);
 
 	c[0]  = rx*rm;
 	c[1]  = tx*tm;
@@ -1435,18 +1675,18 @@ void vml_mat4_scale_set(
 }
 
 void vml_mat4_scale_get(
-	float a[16],
-	float b[3]
+	vml_real a[16],
+	vml_real b[3]
 ) {
-	float rx = a[0];
-	float ry = a[4];
-	float rz = a[8];
-	float tx = a[1];
-	float ty = a[5];
-	float tz = a[9];
-	float fx = a[2];
-	float fy = a[6];
-	float fz = a[10];	
+	vml_real rx = a[0];
+	vml_real ry = a[4];
+	vml_real rz = a[8];
+	vml_real tx = a[1];
+	vml_real ty = a[5];
+	vml_real tz = a[9];
+	vml_real fx = a[2];
+	vml_real fy = a[6];
+	vml_real fz = a[10];	
 
 	b[0] = sqrtf(rx*rx+ry*ry+rz*rz);
 	b[1] = sqrtf(tx*tx+ty*ty+tz*tz);
@@ -1454,41 +1694,50 @@ void vml_mat4_scale_get(
 }
 
 void vml_mat4_lerp(
-	float a[16],
-	float b[16],
-	float t,
-	float c[16]
+	vml_real a[16],
+	vml_real b[16],
+	vml_real t,
+	vml_real c[16]
 ) {
-	float aq[4];
-	float bq[4];
-	float cq[4];
-	float ap[3];
-	float bp[3];
-	float cp[3];
+	vml_real ap[3];
+	vml_real aq[4];
+	vml_real as[3];
 
-	vml_mat4_quat_get(a,aq);
-	vml_mat4_quat_get(b,bq);
+	vml_real bp[3];
+	vml_real bq[4];
+	vml_real bs[3];
+
+	vml_real cp[3];
+	vml_real cq[4];
+	vml_real cs[3];
 
 	vml_mat4_pos_get(a,ap);
-	vml_mat4_pos_get(b,bp);
+	vml_mat4_quat_get(a,aq);
+	vml_mat4_scale_get(a,as);
 
-	vml_quat_lerp(aq,bq,t,cq);
+	vml_mat4_pos_get(b,bp);
+	vml_mat4_quat_get(b,bq);
+	vml_mat4_scale_get(b,bs);
+
 	vml_vec3_lerp(ap,bp,t,cp);
+	vml_vec4_lerp(aq,bq,t,cq);
+	vml_vec3_lerp(as,bs,t,cs);
 
 	vml_mat4_quat_set(c,cq,c);
 	vml_mat4_pos_set(c,cp,c);
+	vml_mat4_scale_set(c,cs,c);
 }
 
 void vml_mat4_perspective(
-	float v,
-	float r,
-	float n,
-	float f,
-	float a[16]
+	vml_real v,
+	vml_real r,
+	vml_real n,
+	vml_real f,
+	vml_real a[16]
 ) {
-	float t = tanf(v/2);
+	vml_real t = tanf(v/2);
 
-	a[0]  = 1/(t*r);
+	a[0]  = 1/(r*t);
 	a[1]  = 0;
 	a[2]  = 0;
 	a[3]  = 0;
@@ -1507,24 +1756,24 @@ void vml_mat4_perspective(
 }
 
 void vml_mat4_orthographic(
-	float l,
-	float r,
-	float t,
-	float b,
-	float n,
-	float f,
-	float a[16]
+	vml_real l,
+	vml_real r,
+	vml_real t,
+	vml_real b,
+	vml_real n,
+	vml_real f,
+	vml_real a[16]
 ) {
-	a[0]  = 2/(r-l);
-	a[1]  = 0;
-	a[2]  = 0;
-	a[3]  = -(r+l)/(r-l);
-	a[4]  = 0;
-	a[5]  = 2/(t-b);
-	a[6]  = 0;
-	a[7]  = -(t+b)/(t-b);
-	a[8]  = 0;
-	a[9]  = 0;
+	a[0] = 2/(r-l);
+	a[1] = 0;
+	a[2] = 0;
+	a[3] = -(r+l)/(r-l);
+	a[4] = 0;
+	a[5] = 2/(t-b);
+	a[6] = 0;
+	a[7] = -(t+b)/(t-b);
+	a[8] = 0;
+	a[9] = 0;
 	a[10] = -2/(f-n);
 	a[11] = -(f+n)/(f-n);
 	a[12] = 0;
@@ -1533,5 +1782,4 @@ void vml_mat4_orthographic(
 	a[15] = 1;
 }
 
-#endif
 #endif
